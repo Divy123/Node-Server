@@ -1,6 +1,7 @@
 var express=require('express');
 var hbs=require('hbs');
 var app=express();
+const port=process.env.PORT||3000;
 app.set('view engines','hbs');
 hbs.registerPartials(__dirname+'/views/partial');
 app.use((req,res,next)=>
@@ -27,4 +28,6 @@ app.get('/bad',(req,res)=>
 {
     res.send("Unable to fulfill request");   
 });
-app.listen(3000);
+app.listen(port,()=>{
+    console.log('App is up on port'+port);
+});
