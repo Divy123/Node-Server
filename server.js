@@ -4,18 +4,7 @@ var app=express();
 const port=process.env.PORT||3000;
 app.set('view engines','hbs');
 hbs.registerPartials(__dirname+'/views/partial');
-app.use((req,res,next)=>
-{
-   console.log(new Date().toString());
-   next();
-});
-app.use((req,res,next)=>
-{
-    res.render('maintainence.hbs',{
-        Title:'Maintainenece page'
-    });
-   
-});
+
 
  app.get('/',(req,res)=>
 {
@@ -23,6 +12,12 @@ app.use((req,res,next)=>
         Title:'Home Page'
     });
 });
+app.get('/project',(req,res)=>
+{
+    res.render("project.hbs",{
+        Title:'Home Page'
+    });
+})
  
 app.get('/bad',(req,res)=>
 {
